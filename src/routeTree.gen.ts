@@ -9,8 +9,68 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as SimulationRouteImport } from './routes/simulation'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as MemoryRouteImport } from './routes/memory'
+import { Route as LivePlantRouteImport } from './routes/live-plant'
+import { Route as KnowledgeGraphRouteImport } from './routes/knowledge-graph'
+import { Route as DecisionCenterRouteImport } from './routes/decision-center'
+import { Route as ComplianceRouteImport } from './routes/compliance'
+import { Route as AuditRouteImport } from './routes/audit'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TimelineRoute = TimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimulationRoute = SimulationRouteImport.update({
+  id: '/simulation',
+  path: '/simulation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecommendationsRoute = RecommendationsRouteImport.update({
+  id: '/recommendations',
+  path: '/recommendations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MemoryRoute = MemoryRouteImport.update({
+  id: '/memory',
+  path: '/memory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LivePlantRoute = LivePlantRouteImport.update({
+  id: '/live-plant',
+  path: '/live-plant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeGraphRoute = KnowledgeGraphRouteImport.update({
+  id: '/knowledge-graph',
+  path: '/knowledge-graph',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecisionCenterRoute = DecisionCenterRouteImport.update({
+  id: '/decision-center',
+  path: '/decision-center',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplianceRoute = ComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +79,172 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/audit': typeof AuditRoute
+  '/compliance': typeof ComplianceRoute
+  '/decision-center': typeof DecisionCenterRoute
+  '/knowledge-graph': typeof KnowledgeGraphRoute
+  '/live-plant': typeof LivePlantRoute
+  '/memory': typeof MemoryRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/settings': typeof SettingsRoute
+  '/simulation': typeof SimulationRoute
+  '/timeline': typeof TimelineRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/audit': typeof AuditRoute
+  '/compliance': typeof ComplianceRoute
+  '/decision-center': typeof DecisionCenterRoute
+  '/knowledge-graph': typeof KnowledgeGraphRoute
+  '/live-plant': typeof LivePlantRoute
+  '/memory': typeof MemoryRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/settings': typeof SettingsRoute
+  '/simulation': typeof SimulationRoute
+  '/timeline': typeof TimelineRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/audit': typeof AuditRoute
+  '/compliance': typeof ComplianceRoute
+  '/decision-center': typeof DecisionCenterRoute
+  '/knowledge-graph': typeof KnowledgeGraphRoute
+  '/live-plant': typeof LivePlantRoute
+  '/memory': typeof MemoryRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/settings': typeof SettingsRoute
+  '/simulation': typeof SimulationRoute
+  '/timeline': typeof TimelineRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/audit'
+    | '/compliance'
+    | '/decision-center'
+    | '/knowledge-graph'
+    | '/live-plant'
+    | '/memory'
+    | '/recommendations'
+    | '/settings'
+    | '/simulation'
+    | '/timeline'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/audit'
+    | '/compliance'
+    | '/decision-center'
+    | '/knowledge-graph'
+    | '/live-plant'
+    | '/memory'
+    | '/recommendations'
+    | '/settings'
+    | '/simulation'
+    | '/timeline'
+  id:
+    | '__root__'
+    | '/'
+    | '/audit'
+    | '/compliance'
+    | '/decision-center'
+    | '/knowledge-graph'
+    | '/live-plant'
+    | '/memory'
+    | '/recommendations'
+    | '/settings'
+    | '/simulation'
+    | '/timeline'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuditRoute: typeof AuditRoute
+  ComplianceRoute: typeof ComplianceRoute
+  DecisionCenterRoute: typeof DecisionCenterRoute
+  KnowledgeGraphRoute: typeof KnowledgeGraphRoute
+  LivePlantRoute: typeof LivePlantRoute
+  MemoryRoute: typeof MemoryRoute
+  RecommendationsRoute: typeof RecommendationsRoute
+  SettingsRoute: typeof SettingsRoute
+  SimulationRoute: typeof SimulationRoute
+  TimelineRoute: typeof TimelineRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/timeline': {
+      id: '/timeline'
+      path: '/timeline'
+      fullPath: '/timeline'
+      preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/simulation': {
+      id: '/simulation'
+      path: '/simulation'
+      fullPath: '/simulation'
+      preLoaderRoute: typeof SimulationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recommendations': {
+      id: '/recommendations'
+      path: '/recommendations'
+      fullPath: '/recommendations'
+      preLoaderRoute: typeof RecommendationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/memory': {
+      id: '/memory'
+      path: '/memory'
+      fullPath: '/memory'
+      preLoaderRoute: typeof MemoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live-plant': {
+      id: '/live-plant'
+      path: '/live-plant'
+      fullPath: '/live-plant'
+      preLoaderRoute: typeof LivePlantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge-graph': {
+      id: '/knowledge-graph'
+      path: '/knowledge-graph'
+      fullPath: '/knowledge-graph'
+      preLoaderRoute: typeof KnowledgeGraphRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decision-center': {
+      id: '/decision-center'
+      path: '/decision-center'
+      fullPath: '/decision-center'
+      preLoaderRoute: typeof DecisionCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compliance': {
+      id: '/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof ComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +257,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuditRoute: AuditRoute,
+  ComplianceRoute: ComplianceRoute,
+  DecisionCenterRoute: DecisionCenterRoute,
+  KnowledgeGraphRoute: KnowledgeGraphRoute,
+  LivePlantRoute: LivePlantRoute,
+  MemoryRoute: MemoryRoute,
+  RecommendationsRoute: RecommendationsRoute,
+  SettingsRoute: SettingsRoute,
+  SimulationRoute: SimulationRoute,
+  TimelineRoute: TimelineRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

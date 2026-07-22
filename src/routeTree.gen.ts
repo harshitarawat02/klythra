@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as LivePlantRouteImport } from './routes/live-plant'
+import { Route as DecisionCenterRouteImport } from './routes/decision-center'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RecommendationsRoute = RecommendationsRouteImport.update({
+  id: '/recommendations',
+  path: '/recommendations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LivePlantRoute = LivePlantRouteImport.update({
+  id: '/live-plant',
+  path: '/live-plant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecisionCenterRoute = DecisionCenterRouteImport.update({
+  id: '/decision-center',
+  path: '/decision-center',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/decision-center': typeof DecisionCenterRoute
+  '/live-plant': typeof LivePlantRoute
+  '/recommendations': typeof RecommendationsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/decision-center': typeof DecisionCenterRoute
+  '/live-plant': typeof LivePlantRoute
+  '/recommendations': typeof RecommendationsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/decision-center': typeof DecisionCenterRoute
+  '/live-plant': typeof LivePlantRoute
+  '/recommendations': typeof RecommendationsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/decision-center' | '/live-plant' | '/recommendations'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/decision-center' | '/live-plant' | '/recommendations'
+  id: '__root__' | '/' | '/decision-center' | '/live-plant' | '/recommendations'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DecisionCenterRoute: typeof DecisionCenterRoute
+  LivePlantRoute: typeof LivePlantRoute
+  RecommendationsRoute: typeof RecommendationsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/recommendations': {
+      id: '/recommendations'
+      path: '/recommendations'
+      fullPath: '/recommendations'
+      preLoaderRoute: typeof RecommendationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live-plant': {
+      id: '/live-plant'
+      path: '/live-plant'
+      fullPath: '/live-plant'
+      preLoaderRoute: typeof LivePlantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decision-center': {
+      id: '/decision-center'
+      path: '/decision-center'
+      fullPath: '/decision-center'
+      preLoaderRoute: typeof DecisionCenterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DecisionCenterRoute: DecisionCenterRoute,
+  LivePlantRoute: LivePlantRoute,
+  RecommendationsRoute: RecommendationsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

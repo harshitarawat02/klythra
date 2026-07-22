@@ -109,7 +109,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               AR
             </div>
             <div className="min-w-0 flex-1">
-              <div className="text-sm font-medium truncate">Arjun Rao</div>
+              <div className="text-sm font-medium truncate">Harshita Rawat</div>
               <div className="text-[11px] text-muted-foreground">Shift Supervisor · Zone C</div>
             </div>
           </div>

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/memory")({
 const patterns = [
   { id: 17, title: "Hot work during permit overlap · Refinery-B", similar: 82, date: "12 Mar 2024", factors: ["Permit overlap", "Delayed maintenance", "Poor ventilation"] },
   { id: 22, title: "Compressor failure cascade · Sector 2", similar: 71, date: "04 Aug 2023", factors: ["Pressure spike", "Bearing wear", "Shift handoff error"] },
-  { id: 09, title: "Gas leak at loading bay · Terminal-4", similar: 64, date: "27 Nov 2022", factors: ["Valve stuck", "Wind direction", "Late detection"] },
+  { id: 9, title: "Gas leak at loading bay · Terminal-4", similar: 64, date: "27 Nov 2022", factors: ["Valve stuck", "Wind direction", "Late detection"] },
 ];
 
 const replaySteps = [

@@ -106,7 +106,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-sidebar-border">
           <div className="flex items-center gap-3">
             <div className="h-9 w-9 rounded-full bg-gradient-to-br from-cyan/40 to-primary/40 flex items-center justify-center text-xs font-semibold">
-              AR
+              HR
             </div>
             <div className="min-w-0 flex-1">
               <div className="text-sm font-medium truncate">Harshita Rawat</div>
